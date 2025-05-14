@@ -13,31 +13,26 @@ const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 
 const App = () => {
-    const handleApply = (settings: any) => {
-    Object.entries(settings).forEach(([key, value]) => {
-        // Преобразование ключей в формат CSS-переменных
-        const cssVariableName = `--${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`;
-        document.documentElement.style.setProperty(cssVariableName, String(value));
-    });
-};
-    const handleReset = () => {
-    Object.entries(defaultArticleState).forEach(([key, value]) => {
-        const cssVariableName = `--${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`;
-        document.documentElement.style.setProperty(cssVariableName, String(value.value));
-    });
-};
-    return (
-        <main
-            className={clsx(styles.main)}>
-           
-            <ArticleParamsForm onApply={handleApply} onReset={handleReset} />
-            <Article />
-        </main>
-    );
+	return (
+		<main
+			className={clsx(styles.main)}
+			style={
+				{
+					'--font-family': defaultArticleState.fontFamilyOption.value,
+					'--font-size': defaultArticleState.fontSizeOption.value,
+					'--font-color': defaultArticleState.fontColor.value,
+					'--container-width': defaultArticleState.contentWidth.value,
+					'--bg-color': defaultArticleState.backgroundColor.value,
+				} as CSSProperties
+			}>
+			<ArticleParamsForm />
+			<Article />
+		</main>
+	);
 };
 
 root.render(
-    <StrictMode>
-        <App />
-    </StrictMode>
+	<StrictMode>
+		<App />
+	</StrictMode>
 );
