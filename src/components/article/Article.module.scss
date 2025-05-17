@@ -7,17 +7,10 @@
 	max-width: var(--container-width, auto);
 	margin: 0 auto;
 	padding: 72px 0 144px;
-	 font-family: inherit;
-    color: inherit;
-    font-size: inherit;
+	
 }
 
-.article,
-.article * {
-    font-family: inherit !important;
-    color: inherit !important;
-    font-size: inherit !important;
-}
+
 
 .titleDescription {
 	max-width: 550px;
