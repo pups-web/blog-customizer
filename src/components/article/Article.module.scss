@@ -7,10 +7,16 @@
 	max-width: var(--container-width, auto);
 	margin: 0 auto;
 	padding: 72px 0 144px;
+	
 }
+
+
 
 .titleDescription {
 	max-width: 550px;
+	font-family: inherit;
+    color: inherit;
+    font-size: inherit;
 }
 
 .image {
